@@ -14,8 +14,12 @@ class Main extends React.Component {
     );
   }
 
-  searchMovie = (str) => {
-    fetch(`http://www.omdbapi.com/?apikey=ff8f5ed1&s=${str}`).then((response) =>
+  searchMovie = (str, type = "all") => {
+    fetch(
+      `http://www.omdbapi.com/?apikey=ff8f5ed1&s=${str}${
+        type !== "all" ? `&type=${type}` : ""
+      }`
+    ).then((response) =>
       response.json().then((data) => this.setState({ movies: data.Search }))
     );
   };

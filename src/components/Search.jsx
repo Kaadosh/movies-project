@@ -3,12 +3,22 @@ import React from "react";
 class Search extends React.Component {
   state = {
     search: "",
+    tyoe: "all",
   };
 
   handleKey = (event) => {
     if (event.key === "Enter") {
-      this.props.searchMovie(this.state.search);
+      this.props.searchMovie(this.state.search, this.state.type);
     }
+  };
+
+  handleFilter = (event) => {
+    this.setState(
+      () => ({ type: event.target.dataset.type }),
+      () => {
+        this.props.searchMovie(this.state.search, this.state.type);
+      }
+    );
   };
 
   render() {
@@ -27,10 +37,47 @@ class Search extends React.Component {
             />
             <button
               className="btn btn-search blue-grey lighten-3"
-              onClick={() => this.props.searchMovie(this.state.search)}
+              onClick={() =>
+                this.props.searchMovie(this.state.search, this.state.type)
+              }
             >
               Search
             </button>
+            <div>
+              <label>
+                <input
+                  className="with-gap"
+                  name="type"
+                  type="radio"
+                  data-type="all"
+                  onChange={this.handleFilter}
+                  checked={this.state.type === "all"}
+                />
+                <span>All</span>
+              </label>
+              <label>
+                <input
+                  className="with-gap"
+                  name="type"
+                  type="radio"
+                  data-type="movie"
+                  onChange={this.handleFilter}
+                  checked={this.state.type === "movie"}
+                />
+                <span>Movies</span>
+              </label>
+              <label>
+                <input
+                  className="with-gap"
+                  name="type"
+                  type="radio"
+                  data-type="series"
+                  onChange={this.handleFilter}
+                  checked={this.state.type === "series"}
+                />
+                <span>Series</span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
