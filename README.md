@@ -10,13 +10,13 @@
 
 > Используемый стек: 
 
-+HTML
+HTML
  
-+CSS3
+CSS3
 
-+React
+React
 
-+JavaScript
+JavaScript
 
-+Библиотека Materialize
+Библиотека Materialize
 
