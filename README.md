@@ -1,3 +1,24 @@
+# Movies-search
+
+---
+
+### Учебный пэт-проект 
+
+---
+
+> Цель проекта создать поиск по фильмам на React классовым компонентом.
+
+> Используемый стек: 
+1. HTML
+2.CSS3
+3.
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
